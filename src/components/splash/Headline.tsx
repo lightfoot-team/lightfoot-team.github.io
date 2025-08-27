@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import { useDarkModeOn } from "../../hooks/useDarkModeOn"
-import LightLogo from '/public/logos/lf-full-light.svg';
-import DarkLogo from '/public/logos/lf-full-dark.svg';
+import LightLogo from '../../assets/images/lf-full-light.svg';
+import DarkLogo from '../../assets/images/lf-full-dark.svg';
 function Headline() {
   const darkModeOn = useDarkModeOn();
   const logoSrc = darkModeOn
