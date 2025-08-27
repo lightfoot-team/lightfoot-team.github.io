@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Created with Vectornator (http://vectornator.io/) -->
+<svg height="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="0 0 3370.82 2384.24" width="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:vectornator="http://vectornator.io" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<radialGradient cx="0" cy="0" gradientTransform="matrix(3342.23 0 0 3342.23 6.82121e-13 1036.99)" gradientUnits="userSpaceOnUse" id="RadialGradient" r="1">
+<stop offset="0.00894855" stop-color="#f15a29"/>
+<stop offset="0.939597" stop-color="#fdb43a"/>
+</radialGradient>
+<linearGradient gradientTransform="matrix(3342.23 0 0 3242.42 -6.82121e-13 1533.4)" gradientUnits="userSpaceOnUse" id="LinearGradient" x1="0" x2="1" y1="0" y2="0">
+<stop offset="0" stop-color="#62d4ff"/>
+<stop offset="1" stop-color="#0368b6"/>
+</linearGradient>
+</defs>
+<g id="Layer-1" vectornator:layerName="Layer 1">
+<g opacity="1" vectornator:layerName="Area Chart 1">
+<path d="M3342.23 1998.77L0 1998.77L0 1254.17L928.398 323.409L2228.16 757.763L3342.23 75.2072L3342.23 1998.77Z" fill="url(#RadialGradient)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="path"/>
+<path d="M3342.23 2309.03L6.82121e-13 2309.03L6.82121e-13 1688.52L478.745 1316.22L1498.06 1688.52L2228.16 1380.68L3342.23 757.763L3342.23 2309.03Z" fill="url(#LinearGradient)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="path"/>
+</g>
+</g>
+</svg>

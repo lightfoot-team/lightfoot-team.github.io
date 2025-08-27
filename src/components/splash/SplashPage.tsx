@@ -1,7 +1,7 @@
 import Headline from "./Headline";
 import Feature from "./Feature";
 import { useDarkModeOn } from "../../hooks/useDarkModeOn";
-
+import graphIcon from '../../assets/images/graph-icon.svg'
 function SplashPage() {
   const darkModeOn = useDarkModeOn();
   const backgroundColor = darkModeOn 
@@ -22,7 +22,7 @@ function SplashPage() {
           headline="Safely and easily roll out features without redeploying"
         />
         <Feature
-          imageSrc={'/logos/graph.png'}
+          imageSrc={graphIcon}//{'/logos/graph.png'}
           headline="Instantly see how new features impact performance and user experience"
         />
         <Feature
