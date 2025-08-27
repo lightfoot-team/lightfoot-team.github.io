@@ -23,7 +23,7 @@ function SplashPage() {
         />
         <Feature
           imageSrc={'/logos/graph.png'}
-          headline="Instantly view how new features impact performance and user experience"
+          headline="Instantly see how new features impact performance and user experience"
         />
         <Feature
           imageSrc={'/logos/grafana.png'}

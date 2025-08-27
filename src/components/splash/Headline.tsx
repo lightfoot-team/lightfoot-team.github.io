@@ -4,9 +4,6 @@ import LightLogo from '/public/logos/lf-full-light.svg';
 import DarkLogo from '/public/logos/lf-full-dark.svg';
 function Headline() {
   const darkModeOn = useDarkModeOn();
-  // const logoSrc = darkModeOn 
-  // ? 'public/logos/lf-full-light.svg'
-  // :'public/logos/lf-full-dark.svg';
   const logoSrc = darkModeOn
     ? LightLogo
     : DarkLogo;
