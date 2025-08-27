@@ -11,7 +11,6 @@ function Headline() {
     <div id='headline' className="p-1">
       <div className="grid grid-cols-1">
         <img id='main-logo' className=' max-h-70' src={logoSrc}></img>
-        {/* <h1 id='headline-main' className='font-bold'>LightFoot</h1> */}
         <h1 id='support-copy' className="font-light">
           Open source feature flag management with out-of-the-box, feature flag-enriched observability and data visualization
         </h1>

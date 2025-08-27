@@ -5,7 +5,6 @@ import { useDarkModeOn } from './hooks/useDarkModeOn';
 import TopNavBar from './components/TopNavBar';
 import OurTeam from './components/team/OurTeam';
 import SplashPage from './components/splash/SplashPage';
-//import CaseStudy from './components/case study/CaseStudy';
 import CaseStudyLayout from './components/case study/CaseStudyLayout';
 export default function App() {
   const darkModeOn = useDarkModeOn(); 
