@@ -70,11 +70,11 @@ This case study explores the domains of feature flags and observability, the cha
 
 ## What are Feature Flags?
 
-A **feature** is a name for a distinct piece of functionality in a codebase. **Feature flags** are a way to control what features are active. They are also known as feature toggles, flippers, or switches. Feature flags return true or false values for conditionals that determine whether the feature will be executed. Flags can also hold different values, such as strings for more complex configurations, where values are used to choose among several conditional branches.¹
+A **feature** is a name for a distinct piece of functionality in a codebase. **Feature flags** are a way to control what features are active. They are also known as feature toggles, flippers, or switches. Feature flags return true or false values for conditionals that determine whether the feature will be executed. Flags can also hold different values, such as strings for more complex configurations, where values are used to choose among several conditional branches. ¹
 
-A key insight here is that feature flags are **evaluated dynamically at runtime**. The deployed code remains the same whether a feature is turned on or off. This is one of the powers of feature flags: they decouple the deployment of code from feature releases. New features can be constantly deployed behind a flag that is only toggled on when the feature is ready. Wrapping functionality in a feature flag means that if the application does not perform as expected with the feature on, it can simply be toggled off to revert to the previous, working version of the application without the need to rebuild and redeploy the code.¹⁰
+A key insight here is that feature flags are **evaluated dynamically at runtime**. The deployed code remains the same whether a feature is turned on or off. This is one of the powers of feature flags: they decouple the deployment of code from feature releases. New features can be constantly deployed behind a flag that is only toggled on when the feature is ready. Wrapping functionality in a feature flag means that if the application does not perform as expected with the feature on, it can simply be toggled off to revert to the previous, working version of the application without the need to rebuild and redeploy the code. ²
 ![alt text](/diagrams/2.0-flags.png)
-*Image Caption: Feature flags are used to dynamically alter an application at runtime and are separate from code deployment¹⁰
+*Image Caption: Feature flags are used to dynamically alter an application at runtime and are separate from code deployment ²
 
 To benefit from the flexibility of runtime evaluation, a **feature flag management service** is required. Feature flag management services handle flag evaluation and provide a platform for setting up and maintaining flags. With a management service, feature flags consist of a **flag key** (a unique identifier) and **flag variants** (the possible values the flag can return). 
 
@@ -100,7 +100,8 @@ Feature flag management services allow developers to focus on using flags and ma
 
 **Observability** is the ability to understand what is happening in a system. An observable software system enables developers to identify and react to any condition or behavior that might arise, even unanticipated conditions. 
 
-The data that forms the foundation of observability is collectively known as **telemetry.** Telemetry is often categorized into three signals: logs, metrics, and traces. **Logs** are messages that describe a single event or a snapshot of time within an application, such as an error being logged when a connection fails. **Metrics** are aggregations of individual data points to track the state of a system, such as a number indicating total resource usage at a given point in time. **Traces** encapsulate information about a series of related units of work across a distributed system. The discrete units that compose a trace are known as **spans.**  
+The data that forms the foundation of observability is collectively known as **telemetry.** Telemetry is often categorized into three signals: logs, metrics, and traces. **Logs** are messages that describe a single event or a snapshot of time within an application, such as an error being logged when a connection fails. **Metrics** are aggregations of individual data points to track the state of a system, such as a number indicating total resource usage at a given point in time. **Traces** encapsulate information about a series of related units of work across a distributed system. The discrete units that compose a trace are known as **spans.** ³ ⁴ 
+
 ![alt text](/diagrams/2.3-span.png)
 *Image Caption: A sample span with three attributes.*
 
@@ -118,7 +119,7 @@ Feature flags and observability are often used together when deploying new funct
 
 ## Open Source Standards
 
-Now that we understand feature flags and observability, it is worth discussing some open source standards and tools with widespread and growing industry adoption.¹⁶
+Now that we understand feature flags and observability, it is worth discussing some open source standards and tools with widespread and growing industry adoption. ⁵
 
 **OpenFeature** is an open-source, Cloud Native Computing Foundation standard and software development kit (SDK). OpenFeature defines an API for feature flag evaluation and a specification for how to implement feature flag providers. With this standard API, developers could switch from one feature flag management system to another with minimal changes to their application code. 
 
@@ -174,7 +175,7 @@ We decided to implement our feature flag management in compliance with the OpenF
 
 OpenFeature defines a specification with standardized interfaces and behaviors for feature flag systems. To connect specific flag management systems to this standard, providers must be built that implement the OpenFeature provider interface. Providers are responsible for performing flag evaluations and providing an abstraction between the underlying flag management system and the OpenFeature SDK.
 ![alt text](/diagrams/5.1-open-feature.png)
-*Image Caption: A diagram of how OpenFeature works in an application6*
+*Image Caption: A diagram of how OpenFeature works in an application* ⁶
 
 We built a LightFoot provider that implements the OpenFeature provider interface, which we include in our SDKs. The provider handles the translation between OpenFeature's standardized evaluation requests and LightFoot's specific API calls, following the OpenFeature specification guidelines across key areas such as:
 
@@ -195,7 +196,7 @@ However, this can add network latency and increase database load as application 
 
 To address this, we implemented a simple in-memory cache in the client application. When an application first evaluates flags, the evaluation results for those flags are fetched from the database and stored. This means future flag evaluations will not need to hit an external API. We implemented a three-minute Time-To-Live (TTL) expiration to trigger refetching of flag values. 
 
-Existing products implement a TTL ranging from one minute to five minutes.⁷,⁸ We chose to use three minutes to balance the freshness of evaluations and the number of database reads due to our expected users having relatively lower traffic. 
+Existing products implement a TTL ranging from one minute to five minutes.⁷ ⁸ We chose to use three minutes to balance the freshness of evaluations and the number of database reads due to our expected users having relatively lower traffic. 
 ![alt text](/diagrams/5.3-evaluation.png)
 *Image Caption: An image showing how feature flag evaluation works and where values are stored*
 
