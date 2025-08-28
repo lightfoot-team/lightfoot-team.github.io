@@ -250,7 +250,7 @@ const HomePage = () => {
 
 #### Requirements
 - Node.js 16.0.0 or higher
-- TypeScript 4.5+ (if using TypeScript)`;function M2(){const i=el()?" bg-[#01233E]":"bg-amber-10";return X.jsx("div",{className:`min-h-screen ${i}`,children:X.jsx("div",{className:"pt-16 px-8 md:px-16 lg:px-24 xl:px-32 max-w-6xl mx-auto",children:X.jsx("div",{className:"prose prose-lg max-w-none md",children:X.jsx(dg,{children:R2})})})})}const _2=`
+- TypeScript 4.5+ (if using TypeScript)`;function M2(){const l=el(),i=l?" bg-[#01233E]":"bg-amber-10",r=l?"prose-invert":"";return X.jsx("div",{className:`min-h-screen ${i}`,children:X.jsx("div",{className:"pt-16 px-8 md:px-16 lg:px-24 xl:px-32 max-w-6xl mx-auto",children:X.jsx("div",{className:`prose prose-lg max-w-none ${r}`,children:X.jsx(dg,{children:R2})})})})}const _2=`
 # Introduction
 
 LightFoot is an open source feature flag management platform with out-of-the-box, feature flag-enriched observability and data visualization. It enables development teams to practice safer rollouts with feature flags while observing how those flags affect application performance. 
