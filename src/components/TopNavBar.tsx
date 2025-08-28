@@ -14,6 +14,9 @@ function TopNavBar() {
           <Link to="/case-study" className="hover:text-yellow-400 font-medium">
             Case Study
           </Link>
+          <Link to="/docs" className="hover:text-yellow-400 font-medium">
+            Docs
+          </Link>
           <Link to="/our-team" className="hover:text-yellow-400 font-medium">
             Our Team
           </Link>
