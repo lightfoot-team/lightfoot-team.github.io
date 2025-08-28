@@ -181,7 +181,7 @@ We built a LightFoot provider that implements the OpenFeature provider interface
 * **Flag Evaluation Process**: We implement the required flag evaluation methods for each flag type with proper evaluation context, flag resolution, and error handling.  
 * **Context Management**: We transform and pass the evaluation context (currently for user attributes) to our backend system
 
-Separating Flag Management from Evaluation  
+## Separating Flag Management from Evaluation  
 When designing the feature flag portion of LightFoot, we chose to separate the evaluation API from the flag management system’s API. The flag management API reads and writes to the database when the development team is managing flags. The evaluation API reads from the same database to retrieve the flag state for the current evaluation context. This also provides a layer of security by separating the user’s application from LightFoot’s flag database, preventing unauthorized changes to flag data.
 
 Due to the heavier read volume, as the client application scales, the evaluation API will need to scale accordingly. Because the evaluation API is read-only, it can scale with database read replicas for the client application to read.
