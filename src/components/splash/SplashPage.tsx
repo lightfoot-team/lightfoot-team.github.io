@@ -11,12 +11,12 @@ function SplashPage() {
   return (
     <div id='splash' className="mt-12">
       <div
-        className={`w-full rounded-2xl shadow-xl p-12 text-center bg-gradient-to-b ${backgroundColor}`}
+        className={`w-full rounded-2xl shadow-xl p-10 text-center bg-gradient-to-b ${backgroundColor}`}
       >
         <Headline />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
         <Feature
           imageSrc={'/logos/yellow-toggle.png'}
           headline="Safely and easily roll out features without redeploying"

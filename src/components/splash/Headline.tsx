@@ -16,7 +16,7 @@ function Headline() {
         </h1>
       </div>
       <Link to="/case-study" className="case-study-link flex justify-center">
-        <button className="m-2">Learn More</button>
+        <button className="m-1">Learn More</button>
       </Link>
     </div>
   )

@@ -2,8 +2,8 @@ import { Link } from "react-router-dom"
 import { useDarkModeOn } from "../hooks/useDarkModeOn";
 
 function TopNavBar() {
-    const darkModeOn = useDarkModeOn();
-    const iconColorMode = darkModeOn ? 'Light' : 'Dark';
+  const darkModeOn = useDarkModeOn();
+  const iconColorMode = darkModeOn ? 'Light' : 'Dark';
   return (
     <nav id="top-nav" className="fixed top-0 w-full bg-blue-300 text-white shadow mb-6 z-60">
       <div className="container mx-auto flex justify-between items-center px-4 py-3">
