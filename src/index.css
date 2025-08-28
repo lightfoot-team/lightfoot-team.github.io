@@ -62,12 +62,12 @@
 
 a {
   font-weight: 610;
-  color: hsl(237, 96%, 65%);
-  text-decoration: inherit;
+  color: hsl(217, 80%, 50%);
+  /* text-decoration: inherit; */
 }
 
 a:hover {
-  color: #535bf2;
+  color: hsl(217, 80%, 50%);
 }
 
 #top-nav a {
@@ -159,11 +159,16 @@ button:focus-visible {
   }
 
   a:hover {
-    color: #747bff;
+    color: hsl(216, 100%, 52%);
   }
 
   button {
     background-color: #f9f9f9;
+  }
+
+  .cs-subheading.open:hover {
+    color: hsl(211, 100%, 46%);
+    background-color: #c7dbf422;
   }
 
 

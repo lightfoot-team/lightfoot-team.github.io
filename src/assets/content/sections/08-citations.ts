@@ -20,8 +20,8 @@ const content = `
 `
 
 const citations = {
-  id: 'citations',
-  label: 'Citations',
+  id: 'works-cited',
+  label: 'Works Cited',
   content
 }
 
