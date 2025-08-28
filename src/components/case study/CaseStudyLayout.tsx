@@ -6,7 +6,7 @@ import CaseStudy from "./CaseStudy";
 import ContentsNavBar from "./ContentsNavBar";
 
 function CaseStudyLayout() {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const [activeId, setActiveId] = useState('');
   const tocItems = sections.map(section => {
     const { id, label } = section
@@ -18,7 +18,7 @@ function CaseStudyLayout() {
 
   return (
     <div id="cs-grid-container" className="">
-      <ContentsNavBar onToggle={setOpen} sections={tocItems} open={open} activeId={activeId}></ContentsNavBar>
+      <ContentsNavBar onToggle={()=>setOpen(!open)} sections={tocItems} open={open} activeId={activeId}></ContentsNavBar>
 
       <CaseStudy sections={sections} sideBarOpen={open} onIntersect={setActiveId}></CaseStudy>
     </div>

@@ -36,7 +36,7 @@ function CaseStudy(props: CaseStudyProps) {
   return (
 
     <main id='case-study-container' className={`${backgroundColor} flex-3 p-6 transition-all
-    ${sideBarOpen ? "ml-60" : "ml-0"}
+    ${sideBarOpen ? "ml-0" : "ml-0"}
     md:ml-66 lg:mr-33
   `}>
       {sections.map((section) => {

@@ -38,10 +38,10 @@ function ContentsNavBar(props: NavBarProps) {
         />
       )}
       <button
-        className="expand-sidebar p-2 md:hidden fixed top-14 left-3 z-50 bg-white rounded shadow opacity-98"
+        className="expand-sidebar p-2 md:hidden fixed top-14 left-3 z-60 bg-white rounded shadow opacity-98"
         onClick={() => onToggle(true)}
       >
-        ☰
+        {open ? 'X' : '☰'}
       </button>
 
       <aside
@@ -50,7 +50,7 @@ function ContentsNavBar(props: NavBarProps) {
       fixed top-12 h-screen w-65 bg-white shadow-lg
     z-50 
     transition-transform transform
-    ${open ? "translate-x-0" : "-translate-x-full"}
+    ${open ? "translate-x-0 w-100 open" : "-translate-x-full"}
     md:translate-x-0
   `}
       >

@@ -131,6 +131,7 @@ button:hover {
   border-color: #646cff;
 }
 
+
 .cs-section img {
   border-radius: 1em;
   width: 100%;
@@ -176,6 +177,11 @@ button:focus-visible {
   }
 
 
+}
+
+#contents-nav.open {
+  padding-top: 1.3em;
+  font-size: 1.8em;
 }
 
 .active-section-link {
