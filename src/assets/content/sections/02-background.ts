@@ -3,11 +3,11 @@ const content = `
 
 ## What are Feature Flags?
 
-A **feature** is a name for a distinct piece of functionality in a codebase. **Feature flags** are a way to control what features are active. They are also known as feature toggles, flippers, or switches. Feature flags return true or false values for conditionals that determine whether the feature will be executed. Flags can also hold different values, such as strings for more complex configurations, where values are used to choose among several conditional branches.¹
+A **feature** is a name for a distinct piece of functionality in a codebase. **Feature flags** are a way to control what features are active. They are also known as feature toggles, flippers, or switches. Feature flags return true or false values for conditionals that determine whether the feature will be executed. Flags can also hold different values, such as strings for more complex configurations, where values are used to choose among several conditional branches. ¹
 
-A key insight here is that feature flags are **evaluated dynamically at runtime**. The deployed code remains the same whether a feature is turned on or off. This is one of the powers of feature flags: they decouple the deployment of code from feature releases. New features can be constantly deployed behind a flag that is only toggled on when the feature is ready. Wrapping functionality in a feature flag means that if the application does not perform as expected with the feature on, it can simply be toggled off to revert to the previous, working version of the application without the need to rebuild and redeploy the code.¹⁰
+A key insight here is that feature flags are **evaluated dynamically at runtime**. The deployed code remains the same whether a feature is turned on or off. This is one of the powers of feature flags: they decouple the deployment of code from feature releases. New features can be constantly deployed behind a flag that is only toggled on when the feature is ready. Wrapping functionality in a feature flag means that if the application does not perform as expected with the feature on, it can simply be toggled off to revert to the previous, working version of the application without the need to rebuild and redeploy the code. ²
 ![alt text](/diagrams/2.0-flags.png)
-*Image Caption: Feature flags are used to dynamically alter an application at runtime and are separate from code deployment¹⁰
+*Image Caption: Feature flags are used to dynamically alter an application at runtime and are separate from code deployment ²
 
 To benefit from the flexibility of runtime evaluation, a **feature flag management service** is required. Feature flag management services handle flag evaluation and provide a platform for setting up and maintaining flags. With a management service, feature flags consist of a **flag key** (a unique identifier) and **flag variants** (the possible values the flag can return). 
 
@@ -33,7 +33,8 @@ Feature flag management services allow developers to focus on using flags and ma
 
 **Observability** is the ability to understand what is happening in a system. An observable software system enables developers to identify and react to any condition or behavior that might arise, even unanticipated conditions. 
 
-The data that forms the foundation of observability is collectively known as **telemetry.** Telemetry is often categorized into three signals: logs, metrics, and traces. **Logs** are messages that describe a single event or a snapshot of time within an application, such as an error being logged when a connection fails. **Metrics** are aggregations of individual data points to track the state of a system, such as a number indicating total resource usage at a given point in time. **Traces** encapsulate information about a series of related units of work across a distributed system. The discrete units that compose a trace are known as **spans.**  
+The data that forms the foundation of observability is collectively known as **telemetry.** Telemetry is often categorized into three signals: logs, metrics, and traces. **Logs** are messages that describe a single event or a snapshot of time within an application, such as an error being logged when a connection fails. **Metrics** are aggregations of individual data points to track the state of a system, such as a number indicating total resource usage at a given point in time. **Traces** encapsulate information about a series of related units of work across a distributed system. The discrete units that compose a trace are known as **spans.** ³ ⁴ 
+
 ![alt text](/diagrams/2.3-span.png)
 *Image Caption: A sample span with three attributes.*
 
@@ -51,7 +52,7 @@ Feature flags and observability are often used together when deploying new funct
 
 ## Open Source Standards
 
-Now that we understand feature flags and observability, it is worth discussing some open source standards and tools with widespread and growing industry adoption.¹⁶
+Now that we understand feature flags and observability, it is worth discussing some open source standards and tools with widespread and growing industry adoption. ⁵
 
 **OpenFeature** is an open-source, Cloud Native Computing Foundation standard and software development kit (SDK). OpenFeature defines an API for feature flag evaluation and a specification for how to implement feature flag providers. With this standard API, developers could switch from one feature flag management system to another with minimal changes to their application code. 
 

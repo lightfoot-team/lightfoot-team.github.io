@@ -22,7 +22,7 @@ We decided to implement our feature flag management in compliance with the OpenF
 
 OpenFeature defines a specification with standardized interfaces and behaviors for feature flag systems. To connect specific flag management systems to this standard, providers must be built that implement the OpenFeature provider interface. Providers are responsible for performing flag evaluations and providing an abstraction between the underlying flag management system and the OpenFeature SDK.
 ![alt text](/diagrams/5.1-open-feature.png)
-*Image Caption: A diagram of how OpenFeature works in an application6*
+*Image Caption: A diagram of how OpenFeature works in an application* ⁶
 
 We built a LightFoot provider that implements the OpenFeature provider interface, which we include in our SDKs. The provider handles the translation between OpenFeature's standardized evaluation requests and LightFoot's specific API calls, following the OpenFeature specification guidelines across key areas such as:
 
@@ -43,7 +43,7 @@ However, this can add network latency and increase database load as application 
 
 To address this, we implemented a simple in-memory cache in the client application. When an application first evaluates flags, the evaluation results for those flags are fetched from the database and stored. This means future flag evaluations will not need to hit an external API. We implemented a three-minute Time-To-Live (TTL) expiration to trigger refetching of flag values. 
 
-Existing products implement a TTL ranging from one minute to five minutes.⁷,⁸ We chose to use three minutes to balance the freshness of evaluations and the number of database reads due to our expected users having relatively lower traffic. 
+Existing products implement a TTL ranging from one minute to five minutes.⁷ ⁸ We chose to use three minutes to balance the freshness of evaluations and the number of database reads due to our expected users having relatively lower traffic. 
 ![alt text](/diagrams/5.3-evaluation.png)
 *Image Caption: An image showing how feature flag evaluation works and where values are stored*
 
