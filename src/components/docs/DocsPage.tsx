@@ -9,7 +9,7 @@ export default function DocsPage() {
   return (
     <div className={`min-h-screen ${backgroundColor}`}>
       <div className="pt-16 px-8 md:px-16 lg:px-24 xl:px-32 max-w-6xl mx-auto">
-        <div className="prose prose-lg max-w-none">
+        <div className="prose prose-lg max-w-none md">
           <ReactMarkdown>
             {docsContent}
           </ReactMarkdown>
