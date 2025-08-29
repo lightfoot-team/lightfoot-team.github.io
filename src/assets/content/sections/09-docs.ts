@@ -111,18 +111,18 @@ const featureFlagsClient = lightFoot.getClient();
 const { LightFootClientSDK } = require('lightfoot-client-sdk');
 
 const lightFoot = new LightFootClientSDK({
-  OTLPExporterBaseURL: "http://localhost:5173",
-  tracesBaseUrl: "http://localhost:4318/",
-  propagateTraceHeaderCorsUrls: ["http://localhost:4318/"]
+  OTLPExporterBaseURL: "http://localhost:5173",          // Your local development server
+  tracesBaseUrl: "http://localhost:4318/",               // OpenTelemetry collector endpoint
+  propagateTraceHeaderCorsUrls: ["http://localhost:4318/"]  // URLs to propagate trace headers to
 });
 \`\`\`
 
 ##### Deployment Configuration
 \`\`\`javascript
 const lightFoot = new LightFootSDK({
-  OTLPExporterBaseURL: NEED EXAMPLE,
-  tracesBaseUrl: NEED EXAMPLE,
-  propagateTraceHeaderCorsUrls: NEED EXAMPLE
+  OTLPExporterBaseURL: "https://your-app.com",
+  tracesBaseUrl: "https://otel-collector.your-domain.com/",
+  propagateTraceHeaderCorsUrls: ["https://otel-collector.your-domain.com"]
 });
 \`\`\`
 
@@ -160,7 +160,7 @@ const HomePage = () => {
       {newUIFeature ? (
         <>Render new UI feature</>
       ) : (
-        <>Render without new UI feaure</>
+        <>Render without new UI feature</>
       )}
     </>
   );
@@ -178,6 +178,7 @@ const HomePage = () => {
 
 #### Requirements
 - Node.js 16.0.0 or higher
-- TypeScript 4.5+ (if using TypeScript)`;
+- TypeScript 4.5+ (if using TypeScript)
+- Modern web browser with ES2017+ support`;
 
 export default docsContent;
