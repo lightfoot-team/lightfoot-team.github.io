@@ -12,9 +12,6 @@ interface SectionProps {
   images?: Array<string>
 }
 
-// const components: Components = {
-//   img: markdownImage as unknown as React.JSX.IntrinsicElements
-// }
 const components: { [key: string]: React.ComponentType } = {
   img: markdownImage,
 };

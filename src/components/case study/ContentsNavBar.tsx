@@ -1,6 +1,3 @@
-// import { Section } from "lucide-react";
-//import { useState } from "react";
-//import { Menu, X } from "lucide-react";
 interface SectionDetails {
   id: string;
   label: string;
@@ -22,13 +19,12 @@ function ContentsNavBar(props: NavBarProps) {
   const tocItems = sections.map(section => {
     const { id, label } = section;
     const subHeadings = document.querySelectorAll(`#${id} h2`)
-    // console.log(subHeadings)
     return {
       id,
       label,
       subHeadings
     }
-  }).filter(section=>!section.id.includes('ui-s'))//TODO: unhardcode
+  }).filter(section=>!section.id.includes('ui-s'))
   return (
     <>
       {open && (
