@@ -16,4 +16,4 @@ const lightFoot = new LightFootSDK({
 \`\`\`
 `
 
-export defaultt configurationContent;
+export default configurationContent;
