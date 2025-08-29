@@ -14,6 +14,28 @@ const lightFoot = new LightFootSDK({
   OTLPExporterBaseUrl: "https://otel-collector.your-domain.com"
 });
 \`\`\`
+
+
+#### Configuration
+##### Local Configuration 
+\`\`\`javascript
+const { LightFootClientSDK } = require('lightfoot-client-sdk');
+
+const lightFoot = new LightFootClientSDK({
+  OTLPExporterBaseURL: "http://localhost:5173",          // Your local development server
+  tracesBaseUrl: "http://localhost:4318/",               // OpenTelemetry collector endpoint
+  propagateTraceHeaderCorsUrls: ["http://localhost:4318/"]  // URLs to propagate trace headers to
+});
+\`\`\`
+
+##### Deployment Configuration
+\`\`\`javascript
+const lightFoot = new LightFootSDK({
+  OTLPExporterBaseURL: "https://your-app.com",
+  tracesBaseUrl: "https://otel-collector.your-domain.com/",
+  propagateTraceHeaderCorsUrls: ["https://otel-collector.your-domain.com"]
+});
+\`\`\`
 `
 
 export default configurationContent;

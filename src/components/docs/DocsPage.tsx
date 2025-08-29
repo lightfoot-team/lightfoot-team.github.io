@@ -21,8 +21,8 @@ export default function DocsPage() {
           <ReactMarkdown components={components}>
             {SDKOverviewContent}
           </ReactMarkdown>
-          <button className={'sdk-button'} onClick = {()=>setSDKSelection('server')}>Server SDK</button>
-          <button className={'sdk-button'} onClick = {()=>setSDKSelection('client')}>Client SDK</button>
+          <button className={`sdk-button ${SDKSelection === 'server' && 'current'}`} onClick = {()=>setSDKSelection('server')}>Server SDK</button>
+          <button className={`sdk-button ${SDKSelection === 'client' && 'current'}`} onClick = {()=>setSDKSelection('client')}>Client SDK</button>
           {SDKSelection === 'server' &&
             <ReactMarkdown components={components}>
               {serverSDKContent}

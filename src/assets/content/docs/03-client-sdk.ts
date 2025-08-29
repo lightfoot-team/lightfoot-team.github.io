@@ -1,98 +1,69 @@
-const clientSDKContent = `### LightFoot Client SDK
+const clientSDKContent = `
+## Quick Start
 
-#### Installation
+### Installation
 \`\`\`bash
 npm install lightfoot-client-sdk
 \`\`\`
 
-#### Quick Start
+### Set up
+The entry point to the Client SDK is the **LightFootClientSDK** class, which is initialized with a configuration object specifying the endpoints for flag evaluation API calls, exported telemetry and optionally an array of URLs for propagating traces across origins:
 \`\`\`javascript
 const { LightFootClientSDK } = require('lightfoot-client-sdk');
 
 // Initialize the SDK
 const lightFoot = new LightFootClientSDK({
-  OTLPExporterBaseURL: "http://localhost:5173",
-  tracesBaseUrl: "http://localhost:4318/",
-  propagateTraceHeaderCorsUrls: ["http://localhost:4318/"]
+  // Example Lightfoot flag evaluation API endpoint
+  flagEvaluationURL: "http://localhost:3001/",
+
+  // Example OpenTelemetry collector endpoint
+  OTLPExporterBaseURL: "http://localhost:4318",
+
+  // Example trace header propagation endpoint array
+  propagateTraceHeaderCorsUrls: ["http://localhost:3002"]
 });
+\`\`\`
 
-const evalContext = {
-  targetingKey: user.id,
-  kind: 'user',
+The *evaluation context* is an object used to determine what value the flag should resolve with. For user contexts, it should include a *targetingKey* to uniquely identify the context along with user details such as id, role and group:
+\`\`\`javascript
+
+const context = {
+  targetingKey: 'unique identifier for this context',
+  kind: "user",
   user: {
-    id: user.id,
-    role: user.role,
-    group: user.group
+    id: "a username or id",
+    role: "role",
+    group: "group"
   }
-}
+};
+\`\`\`
 
+Invoking the LightFootSDK instance method **init** starts telemetry emission and sets up the feature flag provider. In the client SDK,
+an evaluation context object should be passed in to enable flag evaluations to be retrieved and cached upon initialization.
+\`\`\`javascript
 // Initialize telemetry and feature flags, passing in the evaluation context
-lightFoot.init(evalContext);
+await lightFoot.init(context);
 
 // Get the OpenFeature client for feature flag evaluation
 const featureFlagsClient = lightFoot.getClient();
 \`\`\`
-
-#### Configuration
-##### Local Configuration 
-\`\`\`javascript
-const { LightFootClientSDK } = require('lightfoot-client-sdk');
-
-const lightFoot = new LightFootClientSDK({
-  OTLPExporterBaseURL: "http://localhost:5173",          // Your local development server
-  tracesBaseUrl: "http://localhost:4318/",               // OpenTelemetry collector endpoint
-  propagateTraceHeaderCorsUrls: ["http://localhost:4318/"]  // URLs to propagate trace headers to
-});
-\`\`\`
-
-##### Deployment Configuration
-\`\`\`javascript
-const lightFoot = new LightFootSDK({
-  OTLPExporterBaseURL: "https://your-app.com",
-  tracesBaseUrl: "https://otel-collector.your-domain.com/",
-  propagateTraceHeaderCorsUrls: ["https://otel-collector.your-domain.com"]
-});
-\`\`\`
-
-#### Usage Example
+ 
+### Evaluating Flags
+The feature flag client has methods for evaluating flags with boolean, string, number, and object types.
+Each method expects a *flag key* indicating which flag to evaluate and a value to fall back to if the evaluation attempt fails.
 \`\`\`jsx
-const HomePage = () => {
-  const [newUIFeature, setNewUIFeature] = useState(false);
-
-  useEffect(() => {
-    const initializeFeatureFlags = async () => {
-      try {
-        const evalContext = {
-          targetingKey: user.id,
-          kind: 'user',
-          user: {
-            id: user.id,
-            role: user.role,
-            group: user.group
-          }
-        };
-        await lightFootClient.init(evalContext);
-        const client = lightFootClient.getClient();
-        const flagValue = client.getBooleanValue("new-UI", false);
-        setNewUIFeature(flagValue);
-      } catch (error) {
-        console.error('Failed to load feature flags:', error);
-      }
-    };
-
-    initializeFeatureFlags();
-  }, []);
-
+const App = () => {
+  const renderNewUIFeature = client.getBooleanValue("new-UI", false);
   return (
     <>
-      {newUIFeature ? (
+    {
+    renderNewUIFeature ? 
         <>Render new UI feature</>
-      ) : (
-        <>Render without new UI feature</>
-      )}
+      : <>Render without new UI feature</>
+    }
     </>
-  );
-};
+  )
+}
 \`\`\`
 
 ### Methods Available on the Feature Flag Client
@@ -103,10 +74,5 @@ const HomePage = () => {
 \`getNumberValue(flagKey: string, defaultValue: number, context?: EvaluationContext): number\`
 
 \`getObjectValue(flagKey: string, defaultValue: object, context?: EvaluationContext): object\`
-
-#### Requirements
-- Node.js 16.0.0 or higher
-- TypeScript 4.5+ (if using TypeScript)
-- Modern web browser with ES2017+ support`
-
+`
 export default clientSDKContent;

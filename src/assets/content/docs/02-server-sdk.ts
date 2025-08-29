@@ -1,12 +1,12 @@
 const serverSDKContent = `
-### LightFoot Server SDK
+## Quick Start
 ### Installation
 \`\`\`bash
 npm install lightfoot-server-sdk
 \`\`\`
 
-### Quick Start
-The entry point to the SDK is the **LightFootSDK** class, which is initialized with a configuration object specifying the endpoints for flag evaluation API calls and exported telemetry:
+### Set up
+The entry point to the Server SDK is the **LightFootSDK** class, which is initialized with a configuration object specifying the endpoints for flag evaluation API calls and exported telemetry:
 \`\`\`javascript
 const { LightFootSDK } = require('lightfoot-server-sdk');
 
@@ -30,35 +30,35 @@ const featureFlagsClient = lightFoot.getClient();
 \`\`\`
 
 
-
-
 ### Evaluating Flags
 The feature flag client has methods for evaluating flags with boolean, string, number, and object types.
-
-Each method expects an *evaluation context* for determining what value the flag should resolve with. To evaluate a flag for a given user, 
-a context object specifying a targetingKey along with user details such as id, role and group can be passed into the evaluation method. 
+Each method expects a *flag key* indicating which flag to evaluate, a value to fall back to if the evaluation attempt fails,
+and an *evaluation context* object.
 \`\`\`javascript
-
-  const context = {
-    targetingKey: 'unqiue identifier for this context',
-    user: {
-      id: "user's username or id",
-      role: "user's role",
-      group: "user's group"
-    }
-  };
+featureFlagsClient.getBooleanValue('new-feature', false, context);
 \`\`\`
+The evaluation context is used to determine what value the flag should resolve with. For user contexts, it should include a *targetingKey* to uniquely identify the context along with user details such as id, role and group:
 \`\`\`javascript
-router.get("/", (async(req, _)) => {
-  const context = getUserContext(req);
-  const newFeature = featureFlagsClient.getBooleanValue("new-feature", false, context);
 
-  if (newFeature) {
-    // execute code with new feature
-  } else {
-    // execute code without new feature
+const context = {
+  targetingKey: 'unique identifier for this context',
+  kind: "user",
+  user: {
+    id: "a username or id",
+    role: "role",
+    group: "group"
   }
-});
+};
+\`\`\`
+The evaluation method returns the result of evaluating the flag, which can then be used to determine runtime behvaior.
+\`\`\`javascript
+const newFeature = await featureFlagsClient.getBooleanValue("new-feature", false, context);
+
+if (newFeature) {
+  // execute code with new feature
+} else {
+  // execute code without new feature
+}
 \`\`\`
 
 `;

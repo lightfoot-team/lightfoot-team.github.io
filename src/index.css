@@ -176,7 +176,13 @@ button:focus-visible {
     background-color: rgba(255, 255, 255, 0.968);
   }
 
-
+.sdk-button {
+  background-color: #cbd8fe;
+  color:#000000
+}
+.sdk-button.current {
+    background-color: #4271ffa7;
+}
 }
 
 #contents-nav.open {
@@ -307,4 +313,10 @@ button:focus-visible {
 
 #support-copy {
   margin-bottom: 0.5em;
+}
+
+.sdk-button {
+  margin-left: 10%;
+  margin-right: 10%;
+  width: 10em;
 }
