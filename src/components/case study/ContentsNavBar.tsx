@@ -64,7 +64,7 @@ function ContentsNavBar(props: NavBarProps) {
      
               {item.label}
             </a>
-            <SectionSubheadings parentActive={item.id===activeId} subsections={item.subHeadings}></SectionSubheadings>
+            <SectionSubheadings parentActive={item.id===activeId} subsections={item.subHeadings} onToggle={onToggle}></SectionSubheadings>
             </>
           ))}
         </nav>

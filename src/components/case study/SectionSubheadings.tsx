@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 interface SubheadingProps {
-  // label: string,
   parentActive: boolean,
-  subsections: NodeListOf<Element>
+  subsections: NodeListOf<Element>,
+  onToggle: (open: boolean) => void
 }
 function SectionSubheadings(props: SubheadingProps) {
-  const { parentActive, subsections } = props;
+  const { parentActive, subsections, onToggle } = props;
   const [activeSubsectionId, setActiveSubsectionId] = useState('')
   useEffect(() => {
     const sectionElements = document.querySelectorAll("h2");
@@ -32,6 +32,7 @@ function SectionSubheadings(props: SubheadingProps) {
           <>
 
             <a
+              onClick={() => onToggle(false)}
               href={`#${id}`} id={`${id}-link`}
               className={`cs-subheading ${parentActive ? 'open' : 'closed'} ${activeSubsectionId === id && 'selected'}`}
             >
