@@ -13,7 +13,7 @@ interface NavBarProps {
 
 }
 function ContentsNavBar(props: NavBarProps) {
-  const {open, onToggle, sections, activeId} = props;
+  const { open, onToggle, sections, activeId } = props;
 
 
   const tocItems = sections.map(section => {
@@ -24,7 +24,7 @@ function ContentsNavBar(props: NavBarProps) {
       label,
       subHeadings
     }
-  }).filter(section=>!section.id.includes('ui-s'))
+  }).filter(section => !section.id.includes('ui-s'))
   return (
     <>
       {open && (
@@ -53,18 +53,18 @@ function ContentsNavBar(props: NavBarProps) {
         <nav className="p-3 space-y-2 overflow-y-auto h-full">
           {tocItems.map((item) => (
             <>
-            <a
-              key={item.id}
-              href={`#${item.id}`}
-              className={`contents-nav-item block px-3 py-2 rounded-lg
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                className={`contents-nav-item block px-3 py-2 rounded-lg
                  hover:bg-gray-100 text-gray-700
-                 ${activeId === item.id ? 'active-section-link': ''}
+                 ${activeId === item.id ? 'active-section-link' : ''}
                  `}
-            >
-     
-              {item.label}
-            </a>
-            <SectionSubheadings parentActive={item.id===activeId} subsections={item.subHeadings} onToggle={onToggle}></SectionSubheadings>
+              >
+
+                {item.label}
+              </a>
+              <SectionSubheadings parentActive={item.id === activeId} subsections={item.subHeadings} onToggle={onToggle}></SectionSubheadings>
             </>
           ))}
         </nav>

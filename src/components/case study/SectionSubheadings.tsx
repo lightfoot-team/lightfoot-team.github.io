@@ -30,10 +30,15 @@ function SectionSubheadings(props: SubheadingProps) {
         s.id = id;
         return (
           <>
-
             <a
-              onClick={() => onToggle(false)}
+
               href={`#${id}`} id={`${id}-link`}
+              onClick={() => {
+                if (window.innerWidth <= 766) {
+                  onToggle(false)
+                }
+              }
+              }
               className={`cs-subheading ${parentActive ? 'open' : 'closed'} ${activeSubsectionId === id && 'selected'}`}
             >
               {s.textContent}
