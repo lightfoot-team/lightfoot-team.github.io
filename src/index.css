@@ -176,13 +176,14 @@ button:focus-visible {
     background-color: rgba(255, 255, 255, 0.968);
   }
 
-.sdk-button {
-  background-color: #cbd8fe;
-  color:#000000
-}
-.sdk-button.current {
+  .sdk-button {
+    background-color: #cbd8fe;
+    color: #000000
+  }
+
+  .sdk-button.current {
     background-color: #4271ffa7;
-}
+  }
 }
 
 #contents-nav.open {
@@ -297,6 +298,14 @@ button:focus-visible {
   #top-nav a:hover {
     color: rgb(246, 166, 19);
   }
+
+  .sdk-button {
+  color:#010928;
+  background-color: #4b77f074;
+}
+.sdk-button.current {
+   background-color: #4b77f0;
+}
 }
 
 #main-logo {
@@ -316,7 +325,8 @@ button:focus-visible {
 }
 
 .sdk-button {
-  margin-left: 10%;
-  margin-right: 10%;
+  margin-left: 5%;
+  margin-right: 5%;
   width: 10em;
+  font-size: larger;
 }
