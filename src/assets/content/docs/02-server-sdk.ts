@@ -60,6 +60,40 @@ if (newFeature) {
   // execute code without new feature
 }
 \`\`\`
+## Feature Flag Client Methods
+Each evaluation method of the **FeatureFlagClient** returns a value of the corresponding type representing the result of the flag evaluation
+\`\`\`ts
+async getBooleanValue(flagKey: string, defaultValue: boolean, context?: EvaluationContext): boolean
+\`\`\`
+
+\`\`\`ts
+async getStringValue(flagKey: string, defaultValue: string, context?: EvaluationContext): string
+\`\`\`
+
+\`\`\`ts
+async getNumberValue(flagKey: string, defaultValue: number, context?: EvaluationContext): number
+\`\`\`
+
+\`\`\`ts
+async getObjectValue(flagKey: string, defaultValue: object, context?: EvaluationContext): object
+\`\`\`
+
+The following methods are also available if additional details about a flag evaluation are needed, such as the variant name, evaluation reason, or error message. Each method returns an **EvaluationDetails** object containing information about the evaluation result. 
+\`\`\`ts
+async getBooleanDetails(flagKey: string, defaultValue: boolean, context?: EvaluationContext): EvaluationDetails<boolean>
+\`\`\`
+
+\`\`\`ts
+async getStringDetails(flagKey: string, defaultValue: string, context?: EvaluationContext): EvaluationDetails<string>
+\`\`\`
+
+\`\`\`ts
+async getNumberDetails(flagKey: string, defaultValue: number, context?: EvaluationContext): EvaluationDetails<number>
+\`\`\`
+
+\`\`\`ts
+async getObjectDetails(flagKey: string, defaultValue: object, context?: EvaluationContext): EvaluationDetails<object>
+\`\`\`
 
 `;
 

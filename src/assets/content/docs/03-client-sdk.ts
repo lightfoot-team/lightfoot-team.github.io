@@ -66,13 +66,39 @@ const App = () => {
 }
 \`\`\`
 
-### Methods Available on the Feature Flag Client
-\`getBooleanValue(flagKey: string, defaultValue: boolean, context?: EvaluationContext): boolean\`
+## Feature Flag Client Methods
+Each evaluation method of the **FeatureFlagClient** returns a value of the corresponding type representing the result of the flag evaluation
+\`\`\`ts
+getBooleanValue(flagKey: string, defaultValue: boolean, context?: EvaluationContext): boolean
+\`\`\`
 
-\`getStringValue(flagKey: string, defaultValue: string, context?: EvaluationContext): string\`
+\`\`\`ts
+getStringValue(flagKey: string, defaultValue: string, context?: EvaluationContext): string
+\`\`\`
 
-\`getNumberValue(flagKey: string, defaultValue: number, context?: EvaluationContext): number\`
+\`\`\`ts
+getNumberValue(flagKey: string, defaultValue: number, context?: EvaluationContext): number
+\`\`\`
 
-\`getObjectValue(flagKey: string, defaultValue: object, context?: EvaluationContext): object\`
+\`\`\`ts
+getObjectValue(flagKey: string, defaultValue: object, context?: EvaluationContext): object
+\`\`\`
+
+The following methods are also available if additional details about a flag evaluation are needed, such as the variant name, evaluation reason, or error message. Each method returns an **EvaluationDetails** object containing information about the evaluation result. 
+\`\`\`ts
+getBooleanDetails(flagKey: string, defaultValue: boolean, context?: EvaluationContext): EvaluationDetails<boolean>
+\`\`\`
+
+\`\`\`ts
+getStringDetails(flagKey: string, defaultValue: string, context?: EvaluationContext): EvaluationDetails<string>
+\`\`\`
+
+\`\`\`ts
+getNumberDetails(flagKey: string, defaultValue: number, context?: EvaluationContext): EvaluationDetails<number>
+\`\`\`
+
+\`\`\`ts
+getObjectDetails(flagKey: string, defaultValue: object, context?: EvaluationContext): EvaluationDetails<object>
+\`\`\`
 `
 export default clientSDKContent;
