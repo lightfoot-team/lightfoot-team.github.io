@@ -26,7 +26,7 @@ export default function OurTeam() {
       </Member>
       <Member
         name={'Scott Venkataraman'}
-        links={{ linkedin: 'https://www.linkedin.com/in/scott-venkataraman-dpt-166bb5b/', github: 'https://github.com/ScottVenkataraman' }}
+        links={{ linkedin: 'https://www.linkedin.com/in/scott-venkataraman-166bb5b/', github: 'https://github.com/ScottVenkataraman' }}
         image={'/team/scott-headshot.JPG'}>
       </Member>
     </div>
