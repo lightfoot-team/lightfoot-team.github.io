@@ -306,7 +306,7 @@ A **feature** is a name for a distinct piece of functionality in a codebase. **F
 
 A key insight here is that feature flags are **evaluated dynamically at runtime**. The deployed code remains the same whether a feature is turned on or off. This is one of the powers of feature flags: they decouple the deployment of code from feature releases. New features can be constantly deployed behind a flag that is only toggled on when the feature is ready. Wrapping functionality in a feature flag means that if the application does not perform as expected with the feature on, it can simply be toggled off to revert to the previous, working version of the application without the need to rebuild and redeploy the code. ²
 ![alt text](/diagrams/2.0-flags.png)
-*Image Caption: Feature flags are used to dynamically alter an application at runtime and are separate from code deployment ²
+*Image Caption: Feature flags are used to dynamically alter an application at runtime and are separate from code deployment* ²
 
 To benefit from the flexibility of runtime evaluation, a **feature flag management service** is required. Feature flag management services handle flag evaluation and provide a platform for setting up and maintaining flags. With a management service, feature flags consist of a **flag key** (a unique identifier) and **flag variants** (the possible values the flag can return). 
 
